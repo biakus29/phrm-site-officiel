@@ -281,7 +281,7 @@ function App() {
               {[
                 { href: '#about', label: 'À propos' },
                 { href: '#features', label: 'Fonctionnalités' },
-                { href: '/offres', label: 'Recrutement' },
+                { href: 'https://phrmapp.com/offres', label: 'Recrutement' },
                 { href: '#testimonials', label: 'Témoignages' },
                 { href: 'https://phrmapp.com/blog', label: 'Blog' },
                 { href: '#faq', label: 'FAQ' },
