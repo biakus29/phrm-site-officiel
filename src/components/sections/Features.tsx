@@ -8,21 +8,21 @@ export const Features = () => {
             icon: CreditCard,
             description: 'Calculs automatisés conformes à la réglementation CNPS.',
             items: ['Barème IRPP officiel', 'Cotisations CNPS automatiques', 'Fiches de paie PDF'],
-            href: '/register-client'
+            href: 'https://phrmapp.com/register-client'
         },
         {
             title: 'Recrutement',
             icon: Users,
             description: 'Solution complète de gestion du processus de recrutement de vos talents.',
             items: ['Gestion des candidatures', 'Suivi des entretiens', 'Base de données candidats'],
-            href: '/offres'
+            href: 'https://phrmapp.com/offres'
         },
         {
             title: 'Vérification de CV',
             icon: UserCheck,
             description: 'Vérification approfondie des antécédents de vos candidats et employés.',
             items: ["Vérification d'identité", 'Vérification des diplômes', 'Références professionnelles'],
-            href: '/register-client'
+            href: 'https://phrmapp.com/register-client'
         },
         {
             title: 'Conseils',
@@ -30,7 +30,7 @@ export const Features = () => {
             description: 'Expertise complète en conseil RH, droit du travail et ingénierie salariale.',
             items: ['Classification Nationale', 'Ingénierie salariale', 'Prétentions salariales'],
             noAnimation: true,
-            href: '/register-client'
+            href: 'https://phrmapp.com/register-client'
         },
         {
             title: 'Libre-service Employés',
@@ -38,7 +38,7 @@ export const Features = () => {
             description: 'Portail employé pour accéder à toutes leurs informations RH en toute autonomie.',
             items: ['Consultation fiches paie', 'Données personnelles', 'Demandes de congés'],
             noAnimation: true,
-            href: '/register-client'
+            href: 'https://phrmapp.com/register-client'
         },
         {
             title: 'Tableaux de Bord',
@@ -46,7 +46,7 @@ export const Features = () => {
             description: 'Visualisations en temps réel pour un pilotage optimal de vos RH.',
             items: ['Stats en temps réel', 'Graphiques interactifs', 'Rapports personnalisés'],
             noAnimation: true,
-            href: '/register-client'
+            href: 'https://phrmapp.com/register-client'
         }
     ];
 

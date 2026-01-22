@@ -8,10 +8,10 @@ export const Navbar = () => {
     const links = [
         { href: '#about', label: 'À propos' },
         { href: '#features', label: 'Fonctionnalités' },
-        { href: '/offres', label: 'Recrutement' },
+        { href: 'https://phrmapp.com/offres', label: 'Recrutement' },
         { href: '#pricing', label: 'Tarifs' },
         { href: '#testimonials', label: 'Témoignages' },
-        { href: '/blog', label: 'Blog' },
+        { href: 'https://phrmapp.com/blog', label: 'Blog' },
         { href: '#faq', label: 'FAQ' },
         { href: '#contact', label: 'Contact' },
     ];
@@ -35,10 +35,10 @@ export const Navbar = () => {
                     ))}
                 </div>
                 <div className="flex items-center space-x-3 md:space-x-4">
-                    <a href="/client-admin-login" className="text-gray-700 hover:text-phrm-dark font-medium px-2 hidden sm:inline-block">
+                    <a href="https://phrmapp.com/client-admin-login" className="text-gray-700 hover:text-phrm-dark font-medium px-2 hidden sm:inline-block">
                         Se connecter
                     </a>
-                    <a href="/register-client" className="bg-phrm-dark text-white px-4 md:px-6 py-2 rounded-lg hover:brightness-90 transition-colors shadow-sm font-bold">
+                    <a href="https://phrmapp.com/register-client" className="bg-phrm-dark text-white px-4 md:px-6 py-2 rounded-lg hover:brightness-90 transition-colors shadow-sm font-bold">
                         S'inscrire
                     </a>
                     <button
@@ -77,7 +77,7 @@ export const Navbar = () => {
                         ))}
 
                         <a
-                            href="/client-admin-login"
+                            href="https://phrmapp.com/client-admin-login"
                             className="text-center font-semibold text-gray-700 hover:bg-gray-100 py-2 rounded-lg"
                             onClick={() => setMobileOpen(false)}
                         >
@@ -85,7 +85,7 @@ export const Navbar = () => {
                         </a>
 
                         <a
-                            href="/register-client"
+                            href="https://phrmapp.com/register-client"
                             className="bg-phrm-dark text-white px-4 py-2 rounded-lg hover:brightness-90 transition-colors text-center mt-3 block font-bold"
                             onClick={() => setMobileOpen(false)}
                         >

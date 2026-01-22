@@ -22,10 +22,10 @@ export const Hero: React.FC<HeroProps> = ({ realTimeStats }) => {
                         Solution complète RH : conformité Paie-pays; Recrutement, Vérification de CV, Conseil, Libre-service Employés.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-400">
-                        <a href="/client-admin-login" className="bg-phrm-dark text-white px-8 py-4 rounded-lg hover:brightness-90 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl inline-block text-center">
+                        <a href="https://phrmapp.com/client-admin-login" className="bg-phrm-dark text-white px-8 py-4 rounded-lg hover:brightness-90 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl inline-block text-center">
                             Se connecter
                         </a>
-                        <a href="/register-client" className="border-2 border-phrm-dark text-phrm-dark px-8 py-4 rounded-lg hover:bg-phrm-light transition-all transform hover:scale-105 inline-block text-center">
+                        <a href="https://phrmapp.com/register-client" className="border-2 border-phrm-dark text-phrm-dark px-8 py-4 rounded-lg hover:bg-phrm-light transition-all transform hover:scale-105 inline-block text-center">
                             S'inscrire (Direct)
                         </a>
                     </div>
