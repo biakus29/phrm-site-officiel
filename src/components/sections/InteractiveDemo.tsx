@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { CreditCard, Users, Shield, Zap, BarChart3, CheckCircle } from 'lucide-react';
+import { CreditCard, Users, Shield, Zap, CheckCircle } from 'lucide-react';
 
 export const InteractiveDemo = () => {
     return (
@@ -87,9 +86,9 @@ export const InteractiveDemo = () => {
                         <h3 className="text-2xl font-bold mb-4">Prêt à découvrir PHRM ?</h3>
                         <p className="text-blue-500 mb-6">Testez toutes ces fonctionnalités gratuitement pendant 30 jours</p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a href="https://phrmapp.com/demo" className="bg-white text-phrm-dark px-8 py-4 rounded-lg hover:bg-phrm-light transition-all transform hover:scale-105 shadow-lg font-semibold">Démo interactive</a>
+                            <a href="https://phrmapp.com/client-admin-login" className="bg-white text-phrm-dark px-8 py-4 rounded-lg hover:bg-phrm-light transition-all transform hover:scale-105 shadow-lg font-semibold">Se connecter</a>
                             <a href="#pricing" className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-colors font-semibold">Voir les tarifs</a>
-                            <a href="https://phrmapp.com/demo-signup" className="bg-green-600 text-white px-8 py-4 rounded-lg hover:bg-green-700 transition-all transform hover:scale-105 shadow-lg font-semibold">Essai gratuit 30 jours</a>
+                            <a href="https://phrmapp.com/register-client" className="bg-green-600 text-white px-8 py-4 rounded-lg hover:bg-green-700 transition-all transform hover:scale-105 shadow-lg font-semibold">S'inscrire maintenant</a>
                         </div>
                     </div>
                 </div>

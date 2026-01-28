@@ -6,10 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="PHRM - Solution complète de gestion RH pour le Cameroun. Paie conforme CNPS, Recrutement, Vérification de CV, Employee Self-Service." />
     <meta name="keywords" content="RH, gestion paie, CNPS, Cameroun, recrutement, vérification de CV, employee self-service" />
+    <meta name="theme-color" content="#1e3a5f" />
+    
+    <!-- Preconnect to Firebase for faster data fetching -->
+    <link rel="preconnect" href="https://firestore.googleapis.com" />
+    <link rel="preconnect" href="https://firebase.googleapis.com" />
+    <link rel="dns-prefetch" href="https://phrmapp.com" />
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/logophrm.png" as="image" />
+    
     <title>PHRM - Gestion RH Moderne pour le Cameroun</title>
+    
+    <!-- Inline critical CSS for fast initial paint -->
+    <style>
+      /* Loading state */
+      #root:empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      }
+      #root:empty::after {
+        content: '';
+        width: 48px;
+        height: 48px;
+        border: 4px solid #1e3a5f;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+

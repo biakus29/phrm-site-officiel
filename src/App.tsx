@@ -1,22 +1,24 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 
-// Layout
+// Layout (loaded immediately)
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 
-// Sections
+// Critical sections (loaded immediately for fast first paint)
 import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
 import { Stats } from './components/sections/Stats';
 import { Features } from './components/sections/Features';
-import { InterfaceShowcase } from './components/sections/InterfaceShowcase';
-import { InteractiveDemo } from './components/sections/InteractiveDemo';
-import { EmployeeSelfService } from './components/sections/EmployeeSelfService';
-import { Testimonials } from './components/sections/Testimonials';
-import { Blog } from './components/sections/Blog';
-import { WhyChoosePHRM } from './components/sections/WhyChoosePHRM';
-import { FAQ } from './components/sections/FAQ';
-import { Contact } from './components/sections/Contact';
+
+// Lazy loaded sections (loaded on demand for better performance)
+const InterfaceShowcase = lazy(() => import('./components/sections/InterfaceShowcase').then(m => ({ default: m.InterfaceShowcase })));
+const InteractiveDemo = lazy(() => import('./components/sections/InteractiveDemo').then(m => ({ default: m.InteractiveDemo })));
+const EmployeeSelfService = lazy(() => import('./components/sections/EmployeeSelfService').then(m => ({ default: m.EmployeeSelfService })));
+const Testimonials = lazy(() => import('./components/sections/Testimonials').then(m => ({ default: m.Testimonials })));
+const Blog = lazy(() => import('./components/sections/Blog').then(m => ({ default: m.Blog })));
+const WhyChoosePHRM = lazy(() => import('./components/sections/WhyChoosePHRM').then(m => ({ default: m.WhyChoosePHRM })));
+const FAQ = lazy(() => import('./components/sections/FAQ').then(m => ({ default: m.FAQ })));
+const Contact = lazy(() => import('./components/sections/Contact').then(m => ({ default: m.Contact })));
 
 // Modals
 import { FormationModal } from './components/modals/FormationModal';
@@ -25,6 +27,16 @@ import { FormationModal } from './components/modals/FormationModal';
 import { useRealTimeStats } from './hooks/useRealTimeStats';
 import { useBlog } from './hooks/useBlog';
 import { useFormations } from './hooks/useFormations';
+
+// Loading skeleton for lazy components
+const SectionLoader = () => (
+  <div className="py-20 px-4 flex justify-center items-center">
+    <div className="animate-pulse flex flex-col items-center space-y-4">
+      <div className="w-12 h-12 border-4 border-phrm-dark border-t-transparent rounded-full animate-spin"></div>
+      <span className="text-gray-500">Chargement...</span>
+    </div>
+  </div>
+);
 
 function App() {
   const realTimeStats = useRealTimeStats();
@@ -46,14 +58,32 @@ function App() {
         />
         <Stats realTimeStats={realTimeStats} />
         <Features />
-        <InterfaceShowcase />
-        <InteractiveDemo />
-        <EmployeeSelfService />
-        <Testimonials />
-        <Blog recentPosts={recentPosts} loadingPosts={loadingPosts} />
-        <WhyChoosePHRM />
-        <FAQ />
-        <Contact />
+
+        {/* Lazy loaded sections for better performance */}
+        <Suspense fallback={<SectionLoader />}>
+          <InterfaceShowcase />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <InteractiveDemo />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <EmployeeSelfService />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <Testimonials />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <Blog recentPosts={recentPosts} loadingPosts={loadingPosts} />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <WhyChoosePHRM />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <FAQ />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <Contact />
+        </Suspense>
       </main>
 
       <Footer />
@@ -69,3 +99,4 @@ function App() {
 }
 
 export default App;
+
