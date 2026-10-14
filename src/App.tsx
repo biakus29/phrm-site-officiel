@@ -9,13 +9,16 @@ import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
 import { Stats } from './components/sections/Stats';
 import { Features } from './components/sections/Features';
+import { RecruitmentProcess } from './components/sections/RecruitmentProcess';
 
 // Lazy loaded sections (loaded on demand for better performance)
+const Ecosystem = lazy(() => import('./components/sections/Ecosystem').then(m => ({ default: m.Ecosystem })));
 const InterfaceShowcase = lazy(() => import('./components/sections/InterfaceShowcase').then(m => ({ default: m.InterfaceShowcase })));
 const InteractiveDemo = lazy(() => import('./components/sections/InteractiveDemo').then(m => ({ default: m.InteractiveDemo })));
 const EmployeeSelfService = lazy(() => import('./components/sections/EmployeeSelfService').then(m => ({ default: m.EmployeeSelfService })));
 const Testimonials = lazy(() => import('./components/sections/Testimonials').then(m => ({ default: m.Testimonials })));
 const Blog = lazy(() => import('./components/sections/Blog').then(m => ({ default: m.Blog })));
+const Pricing = lazy(() => import('./components/sections/Pricing').then(m => ({ default: m.Pricing })));
 const WhyChoosePHRM = lazy(() => import('./components/sections/WhyChoosePHRM').then(m => ({ default: m.WhyChoosePHRM })));
 const FAQ = lazy(() => import('./components/sections/FAQ').then(m => ({ default: m.FAQ })));
 const Contact = lazy(() => import('./components/sections/Contact').then(m => ({ default: m.Contact })));
@@ -23,18 +26,18 @@ const Contact = lazy(() => import('./components/sections/Contact').then(m => ({ 
 // Modals
 import { FormationModal } from './components/modals/FormationModal';
 
+// UI
+import { LogoLoader } from './components/ui/LogoLoader';
+
 // Hooks
 import { useRealTimeStats } from './hooks/useRealTimeStats';
 import { useBlog } from './hooks/useBlog';
 import { useFormations } from './hooks/useFormations';
 
-// Loading skeleton for lazy components
+// Loading skeleton for lazy components — utilise le loader de marque (construction du logo)
 const SectionLoader = () => (
   <div className="py-20 px-4 flex justify-center items-center">
-    <div className="animate-pulse flex flex-col items-center space-y-4">
-      <div className="w-12 h-12 border-4 border-phrm-dark border-t-transparent rounded-full animate-spin"></div>
-      <span className="text-gray-500">Chargement...</span>
-    </div>
+    <LogoLoader size="md" />
   </div>
 );
 
@@ -46,7 +49,7 @@ function App() {
   const [selectedFormation, setSelectedFormation] = useState<any>(null);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col font-sans selection:bg-phrm-dark selection:text-white">
+    <div className="min-h-screen bg-phrm-bg flex flex-col font-sans selection:bg-phrm-navy selection:text-white">
       <Navbar />
 
       <main className="flex-grow">
@@ -58,8 +61,12 @@ function App() {
         />
         <Stats realTimeStats={realTimeStats} />
         <Features />
+        <RecruitmentProcess />
 
         {/* Lazy loaded sections for better performance */}
+        <Suspense fallback={<SectionLoader />}>
+          <Ecosystem />
+        </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <InterfaceShowcase />
         </Suspense>
@@ -74,6 +81,9 @@ function App() {
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <Blog recentPosts={recentPosts} loadingPosts={loadingPosts} />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <Pricing />
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <WhyChoosePHRM />

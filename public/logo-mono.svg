@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="PHRM" fill="currentColor">
+  <title>PHRM</title>
+  <rect x="15" y="15" width="110" height="110" rx="3" fill="none" stroke="currentColor" stroke-width="4"/>
+  <rect x="75" y="75" width="110" height="110" rx="3" fill="currentColor"/>
+  <g font-family="Montserrat, Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="44" text-anchor="middle" dominant-baseline="central">
+    <text x="60" y="55" fill="currentColor">P</text>
+    <text x="105" y="105" fill="#FFFFFF">H</text>
+    <text x="130" y="130" fill="#FFFFFF">R</text>
+    <text x="158" y="158" fill="#FFFFFF">M</text>
+  </g>
+</svg>

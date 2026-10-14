@@ -12,10 +12,10 @@ export const TruncatedText: React.FC<TruncatedTextProps> = ({ text, maxChars = 3
     const displayText = expanded || !isLong ? text : text.slice(0, maxChars) + '…';
     return (
         <div>
-            <p className="text-gray-700 leading-relaxed">{displayText}</p>
+            <p className="text-phrm-text leading-relaxed">{displayText}</p>
             {isLong && (
                 <button
-                    className="mt-3 text-phrm-dark font-semibold hover:underline"
+                    className="mt-3 text-phrm-navy font-semibold hover:underline"
                     onClick={() => setExpanded(!expanded)}
                 >
                     {expanded ? 'Voir moins' : 'Lire plus'}

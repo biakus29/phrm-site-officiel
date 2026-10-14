@@ -2,49 +2,115 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logophrm.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="PHRM - Solution complète de gestion RH pour le Cameroun. Paie conforme CNPS, Recrutement, Vérification de CV, Employee Self-Service." />
     <meta name="keywords" content="RH, gestion paie, CNPS, Cameroun, recrutement, vérification de CV, employee self-service" />
-    <meta name="theme-color" content="#1e3a5f" />
-    
+    <meta name="theme-color" content="#123A6D" />
+
     <!-- Preconnect to Firebase for faster data fetching -->
     <link rel="preconnect" href="https://firestore.googleapis.com" />
     <link rel="preconnect" href="https://firebase.googleapis.com" />
-    <link rel="dns-prefetch" href="https://phrmapp.com" />
-    
+    <link rel="dns-prefetch" href="https://paie.phrm.app" />
+
+    <!-- Brand fonts: Montserrat (titres + logo) + Inter (corps/chiffres) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet" />
+
     <!-- Preload critical assets -->
-    <link rel="preload" href="/logophrm.png" as="image" />
-    
+    <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml" />
+
     <title>PHRM - Gestion RH Moderne pour le Cameroun</title>
-    
-    <!-- Inline critical CSS for fast initial paint -->
+
+    <!-- Inline boot loader : reconstruction du logo PHRM (joue avant le mount React) -->
     <style>
-      /* Loading state */
-      #root:empty {
+      html, body { margin: 0; padding: 0; }
+      body { background: #F8FAFC; }
+
+      .phrm-boot {
+        position: fixed;
+        inset: 0;
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 100vh;
-        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        flex-direction: column;
+        gap: 1.25rem;
+        background: #F8FAFC;
+        z-index: 9999;
       }
-      #root:empty::after {
-        content: '';
-        width: 48px;
-        height: 48px;
-        border: 4px solid #1e3a5f;
-        border-top-color: transparent;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
+      .phrm-boot__logo { width: 140px; height: 140px; }
+      .phrm-boot__label {
+        font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #4A6B89;
       }
-      @keyframes spin {
-        to { transform: rotate(360deg); }
+
+      .phrm-boot-sq { transform-box: fill-box; transform-origin: center; }
+      .phrm-boot-sq-back  { animation: phrmBootSqBack  2.8s ease-out infinite; }
+      .phrm-boot-sq-front { animation: phrmBootSqFront 2.8s ease-out infinite; }
+      .phrm-boot-l {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation-duration: 2.8s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-out;
+      }
+      .phrm-boot-l-p { animation-name: phrmBootLP; }
+      .phrm-boot-l-h { animation-name: phrmBootLH; }
+      .phrm-boot-l-r { animation-name: phrmBootLR; }
+      .phrm-boot-l-m { animation-name: phrmBootLM; }
+
+      @keyframes phrmBootSqBack {
+        0%        { opacity: 0; transform: translateX(-18px); }
+        18%, 100% { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes phrmBootSqFront {
+        0%, 10%   { opacity: 0; transform: translate(14px, 14px); }
+        28%, 100% { opacity: 1; transform: translate(0, 0); }
+      }
+      @keyframes phrmBootLP {
+        0%, 28%   { opacity: 0; transform: translateY(-8px); }
+        38%, 100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes phrmBootLH {
+        0%, 38%   { opacity: 0; transform: translateY(-8px); }
+        48%, 100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes phrmBootLR {
+        0%, 48%   { opacity: 0; transform: translateY(-8px); }
+        58%, 100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes phrmBootLM {
+        0%, 58%   { opacity: 0; transform: translateY(-8px); }
+        68%, 100% { opacity: 1; transform: translateY(0); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .phrm-boot-sq,
+        .phrm-boot-l { animation: none; opacity: 1; transform: none; }
       }
     </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Boot loader : disparaît dès que React monte et remplace #root -->
+      <div class="phrm-boot" role="status" aria-live="polite" aria-label="Chargement de PHRM">
+        <svg class="phrm-boot__logo" viewBox="0 0 200 200" aria-hidden="true">
+          <rect class="phrm-boot-sq phrm-boot-sq-back" x="15" y="15" width="110" height="110" rx="3" fill="#A8D6F4" />
+          <rect class="phrm-boot-sq phrm-boot-sq-front" x="75" y="75" width="110" height="110" rx="3" fill="#0A1D34" />
+          <g font-family="Montserrat, Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="44" text-anchor="middle" dominant-baseline="central">
+            <text class="phrm-boot-l phrm-boot-l-p" x="60" y="55" fill="#0A1D34">P</text>
+            <text class="phrm-boot-l phrm-boot-l-h" x="105" y="105" fill="#FFFFFF">H</text>
+            <text class="phrm-boot-l phrm-boot-l-r" x="130" y="130" fill="#FFFFFF">R</text>
+            <text class="phrm-boot-l phrm-boot-l-m" x="158" y="158" fill="#FFFFFF">M</text>
+          </g>
+        </svg>
+        <span class="phrm-boot__label">Chargement…</span>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

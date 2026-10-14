@@ -1,4 +1,3 @@
-import * as React from 'react';
 
 export const FAQ = () => {
     const faqs = [
@@ -16,7 +15,7 @@ export const FAQ = () => {
         },
         {
             q: 'Puis-je essayer PHRM avant de m\'engager ?',
-            a: 'Bien sûr ! Nous offrons un essai gratuit de 30 jours sans engagement. Vous pouvez tester toutes les fonctionnalités avec vos vraies données.'
+            a: 'Bien sûr ! Nous offrons un essai gratuit de 14 jours effectifs sans engagement. Vous pouvez tester toutes les fonctionnalités avec vos vraies données.'
         },
         {
             q: 'Quel support technique proposez-vous ?',
@@ -25,17 +24,17 @@ export const FAQ = () => {
     ];
 
     return (
-        <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-phrm-bg">
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">Questions Fréquentes</h2>
-                    <p className="text-xl text-gray-600">Tout ce que vous devez savoir sur PHRM</p>
+                    <h2 className="text-4xl font-bold text-phrm-text mb-4">Questions Fréquentes</h2>
+                    <p className="text-xl text-phrm-muted">Tout ce que vous devez savoir sur PHRM</p>
                 </div>
                 <div className="space-y-6">
                     {faqs.map((faq, i) => (
                         <div key={i} className="bg-white rounded-lg p-6 shadow-sm">
-                            <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.q}</h3>
-                            <p className="text-gray-600">{faq.a}</p>
+                            <h3 className="text-lg font-semibold text-phrm-text mb-3">{faq.q}</h3>
+                            <p className="text-phrm-muted">{faq.a}</p>
                         </div>
                     ))}
                 </div>

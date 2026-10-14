@@ -373,29 +373,49 @@
   }
 }
 
-/* Couleurs PHRM - classes de secours */
-:root {
-  --phrm-dark: #0F3B67;
-  --phrm-light: #9DE8FF;
-  --phrm-stroke: #072537;
-  --phrm-text: #071725;
+/* ===========================================================================
+   Système de marque PHRM — typographie & composants
+   Couleurs : définies comme tokens Tailwind (voir tailwind.config.js),
+   utilisées via les classes phrm-navy / phrm-sky / phrm-dark / etc.
+   =========================================================================== */
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #0A1D34; /* phrm.text */
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
 }
 
-/* Palette PHRM - classes utilitaires (pour cas où Tailwind n'a pas encore recompilé) */
-.bg-phrm-dark { background-color: var(--phrm-dark) !important; }
-.text-phrm-dark { color: var(--phrm-dark) !important; }
-.bg-phrm-light { background-color: var(--phrm-light) !important; }
-.text-phrm-light { color: var(--phrm-light) !important; }
-.border-phrm-stroke { border-color: var(--phrm-stroke) !important; }
-.text-phrm { color: var(--phrm-text) !important; }
+@layer components {
+  /* Boutons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-phrm-navy text-white font-semibold rounded-btn px-5 py-2.5 transition-colors;
+  }
+  .btn-primary:hover { @apply bg-phrm-mid; }
 
-/* Gradient / helper fallbacks */
-.from-phrm-light-fallback { background: linear-gradient(135deg, var(--phrm-light), #ffffff) !important; }
-.from-phrm-dark-fallback { background: linear-gradient(135deg, var(--phrm-dark), #071725) !important; }
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 bg-phrm-sky text-phrm-dark font-semibold rounded-btn px-5 py-2.5 transition-colors;
+  }
 
-/* Button / ring helpers */
-.btn-phrm-dark { background-color: var(--phrm-dark); color: #fff; }
-.ring-phrm-dark { box-shadow: 0 0 0 4px rgba(15,59,103,0.12); }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 bg-transparent text-phrm-navy font-semibold rounded-btn px-5 py-2.5 border-[1.5px] border-phrm-navy transition-colors hover:bg-phrm-pale;
+  }
 
-/* Small utilities */
-.bg-phrm-light\/40 { background-color: rgba(157,232,255,0.4) !important; }
+  /* Cartes */
+  .card {
+    @apply bg-white rounded-card p-6 border border-phrm-navy/15;
+  }
+  .card-rh { border-top: 3px solid #0F3B67; }
+  .card-compta { border-top: 3px solid #0EA5E9; }
+
+  /* Badge de conformité */
+  .badge-compliance {
+    @apply inline-flex items-center gap-1.5 rounded-badge px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.06em] text-phrm-navy;
+    background: rgba(157, 232, 255, 0.15);
+    border: 0.5px solid rgba(157, 232, 255, 0.4);
+  }
+}
